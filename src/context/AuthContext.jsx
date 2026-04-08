@@ -78,6 +78,14 @@ export function AuthProvider({ children }) {
     });
   }, []);
 
+  useEffect(() => {
+    if (!state.ready || !state.token || state.user) {
+      return;
+    }
+
+    refreshUser().catch(() => {});
+  }, [state.ready, state.token, state.user]);
+
   const setSession = (session) => {
     writeAuthSession(session);
     dispatch({ type: 'SET_SESSION', payload: session });
@@ -114,12 +122,153 @@ export function AuthProvider({ children }) {
     }
   };
 
+  const register = async (payload) => {
+    dispatch({ type: 'AUTH_REQUEST' });
+
+    try {
+      const response = await authApi.register(payload);
+      dispatch({ type: 'AUTH_SUCCESS', payload: {} });
+      return response;
+    } catch (error) {
+      dispatch({
+        type: 'AUTH_ERROR',
+        payload: error.message ?? 'Unable to register right now.',
+      });
+      throw error;
+    }
+  };
+
+  const login = async (payload) => {
+    dispatch({ type: 'AUTH_REQUEST' });
+
+    try {
+      const response = await authApi.login(payload);
+      setSession({
+        token: response.token ?? null,
+        user: response.user ?? null,
+      });
+      return response;
+    } catch (error) {
+      dispatch({
+        type: 'AUTH_ERROR',
+        payload: error.message ?? 'Unable to login right now.',
+      });
+      throw error;
+    }
+  };
+
+  const resendOtp = async (payload) => {
+    dispatch({ type: 'AUTH_REQUEST' });
+
+    try {
+      const response = await authApi.resendOtp(payload);
+      dispatch({ type: 'AUTH_SUCCESS', payload: {} });
+      return response;
+    } catch (error) {
+      dispatch({
+        type: 'AUTH_ERROR',
+        payload: error.message ?? 'Unable to resend OTP right now.',
+      });
+      throw error;
+    }
+  };
+
+  const verifyOtp = async (payload) => {
+    dispatch({ type: 'AUTH_REQUEST' });
+
+    try {
+      const response = await authApi.verifyOtp(payload);
+      dispatch({ type: 'AUTH_SUCCESS', payload: {} });
+      return response;
+    } catch (error) {
+      dispatch({
+        type: 'AUTH_ERROR',
+        payload: error.message ?? 'Unable to verify OTP right now.',
+      });
+      throw error;
+    }
+  };
+
+  const forgotPassword = async (payload) => {
+    dispatch({ type: 'AUTH_REQUEST' });
+
+    try {
+      const response = await authApi.forgotPassword(payload);
+      dispatch({ type: 'AUTH_SUCCESS', payload: {} });
+      return response;
+    } catch (error) {
+      dispatch({
+        type: 'AUTH_ERROR',
+        payload: error.message ?? 'Unable to start password recovery right now.',
+      });
+      throw error;
+    }
+  };
+
+  const forgotVerifyOtp = async (payload) => {
+    dispatch({ type: 'AUTH_REQUEST' });
+
+    try {
+      const response = await authApi.forgotVerifyOtp(payload);
+      dispatch({ type: 'AUTH_SUCCESS', payload: {} });
+      return response;
+    } catch (error) {
+      dispatch({
+        type: 'AUTH_ERROR',
+        payload: error.message ?? 'Unable to verify recovery OTP right now.',
+      });
+      throw error;
+    }
+  };
+
+  const resetPassword = async (payload) => {
+    dispatch({ type: 'AUTH_REQUEST' });
+
+    try {
+      const response = await authApi.resetPassword(payload);
+      dispatch({ type: 'AUTH_SUCCESS', payload: {} });
+      return response;
+    } catch (error) {
+      dispatch({
+        type: 'AUTH_ERROR',
+        payload: error.message ?? 'Unable to reset password right now.',
+      });
+      throw error;
+    }
+  };
+
+  const logout = async () => {
+    dispatch({ type: 'AUTH_REQUEST' });
+
+    try {
+      if (state.token) {
+        await authApi.logout(state.token);
+      }
+    } catch (error) {
+      dispatch({
+        type: 'AUTH_ERROR',
+        payload: error.message ?? 'Unable to logout cleanly.',
+      });
+      throw error;
+    } finally {
+      clearSession();
+    }
+  };
+
   const value = {
     ...state,
     isAuthenticated: Boolean(state.token),
     dispatch,
     setSession,
     clearSession,
+    register,
+    login,
+    resendOtp,
+    verifyOtp,
+    forgotPassword,
+    forgotVerifyOtp,
+    resetPassword,
+    logout,
     refreshUser,
   };
 

@@ -36,22 +36,22 @@
 
 ## Phase 3: Auth Flows
 
-- [ ] Implement registration flow.
-- [ ] Implement login flow.
-- [ ] Implement OTP verification flow.
-- [ ] Implement resend OTP flow.
-- [ ] Implement forgot password flow.
-- [ ] Implement forgot-password OTP verification flow.
-- [ ] Implement reset password flow.
-- [ ] Implement logout flow.
-- [ ] Implement user detail fetch flow.
-- [ ] Use the OTP returned by the API response as required by the spec.
+- [x] Implement registration flow.
+- [x] Implement login flow.
+- [x] Implement OTP verification flow.
+- [x] Implement resend OTP flow.
+- [x] Implement forgot password flow.
+- [x] Implement forgot-password OTP verification flow.
+- [x] Implement reset password flow.
+- [x] Implement logout flow.
+- [x] Implement user detail fetch flow.
+- [x] Use the OTP returned by the API response as required by the spec.
 
 ## Phase 4: Forms And Validation
 
-- [ ] Install and use `react-hook-form` for all authentication forms.
-- [ ] Add validation for registration, login, OTP, forgot password, and reset password fields.
-- [ ] Handle loading, success, and error states in each form.
+- [x] Install and use `react-hook-form` for all authentication forms.
+- [x] Add validation for registration, login, OTP, forgot password, and reset password fields.
+- [x] Handle loading, success, and error states in each form.
 
 ## Phase 5: Required Libraries
 
