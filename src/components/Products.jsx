@@ -230,7 +230,7 @@ const ProductsHeader = ({ className = '' }) => (
 function Products({ className = '' }) {
   return (
     <section
-      className={`w-full px-5 md:px-10 lg:px-24 py-12 font-[Satoshi] ${className}`}
+      className={`w-full px-5 md:px-10 lg:px-24 pt-12 pb-2 font-[Satoshi] ${className}`}
     >
       <ProductsHeader />
 
