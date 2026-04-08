@@ -23,7 +23,7 @@ const FocusCard = ({ title, description }) => (
 /* ─── Main TrainChamp Section ─── */
 function TrainChamp({ className = '' }) {
   return (
-    <section className={`w-full px-5 md:px-10 lg:px-24 pt-0 pb-12 font-[Satoshi] relative ${className}`}>
+    <section className={`w-full px-5 md:px-10 lg:px-24 pt-0 pb-0 font-[Satoshi] relative ${className}`}>
 
       {/* Header Row */}
       <div className="flex flex-col items-start gap-2 max-w-full text-black/75">

@@ -2,6 +2,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Products from './components/Products';
 import TrainChamp from './components/TrainChamp';
+import Testimonials from './components/Testimonials';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
       </div>
       <Products />
       <TrainChamp />
+      <Testimonials />
     </div>
   );
 }
