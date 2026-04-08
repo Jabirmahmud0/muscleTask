@@ -22,12 +22,12 @@ const FooterLinks = () => {
           Our mission is to provide you with the tools, resources, and community
           you need to build the body of your dreams
         </p>
-        <hr className="w-[160px] border-[rgba(0,0,0,0.3)] my-[36px]" />
+        <hr className="w-[160px] border-[rgba(0,0,0,0.3)] my-[20px]" />
         <div className="flex items-center gap-3">
-          <span className="text-[18px] font-medium text-black/75">Social Media:</span>
-          <span className={`${linkClass} font-medium text-black`}>Fb</span>
-          <span className={`${linkClass} font-medium text-black`}>In</span>
-          <span className={`${linkClass} font-medium text-black`}>Tw</span>
+          <span className="text-[18px] font-medium text-black/75" style={{ fontFamily: 'Satoshi, sans-serif' }}>Social Media:</span>
+          <span className={`${linkClass} font-bold text-black`} style={{ fontFamily: 'Satoshi, sans-serif' }}>Fb</span>
+          <span className={`${linkClass} font-bold text-black`} style={{ fontFamily: 'Satoshi, sans-serif' }}>In</span>
+          <span className={`${linkClass} font-bold text-black`} style={{ fontFamily: 'Satoshi, sans-serif' }}>Tw</span>
         </div>
       </div>
 
@@ -85,7 +85,7 @@ function Footer({ className = '' }) {
       <hr className="w-full border-[rgba(0,0,0,0.2)]" />
 
       {/* Footer Links */}
-      <div className="pt-[40px] pb-[30px]">
+      <div className="pt-[20px] pb-[30px]">
         <FooterLinks />
       </div>
 

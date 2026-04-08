@@ -10,7 +10,7 @@ function Navbar() {
         {/* Left: Logo + Pill Nav */}
         <div className="flex items-center flex-1">
           {/* Green Logo Circle */}
-          <div className="w-[60px] h-[60px] lg:w-[70px] lg:h-[70px] rounded-full bg-[#7AB641] flex items-center justify-center shrink-0 z-10 md:ml-8 lg:ml-24">
+          <div className="w-[60px] h-[60px] lg:w-[70px] lg:h-[70px] rounded-full bg-[#7AB641] flex items-center justify-center shrink-0 z-10 md:ml-8 lg:ml-30">
             <img
               src="/navLEFTLogo.png"
               alt="Logo"
@@ -29,7 +29,7 @@ function Navbar() {
             <span className="text-white/30 text-lg">|</span>
 
             {/* Search */}
-            <div className="flex items-center bg-white/10 border border-white/20 rounded-full px-4 py-1.5 gap-2">
+            <div className="flex items-center bg-[#FFFFFF40] border border-white/20 rounded-full px-8 py-1.5 gap-6">
               <span className="text-white text-sm font-medium" style={{ fontFamily: "Satoshi" }}>Search</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="11" cy="11" r="8" />
@@ -40,7 +40,7 @@ function Navbar() {
         </div>
 
         {/* Register Button */}
-        <button className="bg-[#7AB641] hover:bg-[#6DA033] text-white font-bold text-base lg:text-lg tracking-wider py-3 lg:py-3.5 px-8 lg:px-12 rounded-full transition-colors uppercase md:mr-8 lg:mr-32">
+        <button className="bg-[#7AB641] hover:bg-[#6DA033] text-white font-bold text-base lg:text-lg tracking-wider py-3 lg:py-3.5 px-8 lg:px-16 rounded-full transition-colors uppercase md:mr-8 lg:mr-32">
           Register
         </button>
       </div>
@@ -71,9 +71,9 @@ function Navbar() {
           <a href="#" className="text-white text-sm font-medium tracking-wide" style={{ fontFamily: "Satoshi" }}>Our gym location</a>
 
           {/* Search */}
-          <div className="flex items-center bg-white/10 border border-white/20 rounded-full px-4 py-2 gap-2 w-fit">
+          <div className="flex items-center bg-[#FFFFFF40] border border-white/20 rounded-full px-4 py-2 gap-2 w-fit">
             <span className="text-white text-sm font-medium" style={{ fontFamily: "Satoshi" }}>Search</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="24" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="11" cy="11" r="8" />
               <path d="m21 21-4.35-4.35" />
             </svg>

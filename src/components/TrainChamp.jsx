@@ -30,40 +30,40 @@ function TrainChamp({ className = '' }) {
 
         {/* Top row: left dots + right dots — lg only */}
         <div className="hidden lg:flex w-full justify-between items-start mb-2">
-          <div className="flex flex-col gap-1 ml-8" style={{ transform: 'rotate(165deg)' }}>
+          <div className="flex flex-col ml-8" style={{ transform: 'rotate(90deg)' }}>
             {/* Row 1: 1 dot */}
             <div className="flex items-center gap-0">
               <Dot />
             </div>
             {/* Row 2: 3 dots (2nd is gap) */}
-            <div className="flex items-center gap-0">
+            <div className="flex items-center gap-0 -mt-3">
               <Dot /><div className="w-[22px] h-[37px] invisible" /><Dot /><div className="w-[22px] h-[37px] invisible" /><Dot />
             </div>
             {/* Row 3: 3 dots (2nd is gap) */}
-            <div className="flex items-center gap-0">
+            <div className="flex items-center gap-0 -mt-3">
               <Dot /><div className="w-[22px] h-[37px] invisible" /><Dot /><div className="w-[22px] h-[37px] invisible" /><Dot />
             </div>
             {/* Row 4: 2nd and 4th dot only */}
-            <div className="flex items-center gap-0">
+            <div className="flex items-center gap-0 -mt-3">
               <div className="w-[22px] h-[37px] invisible" /><Dot /><div className="w-[22px] h-[37px] invisible" /><Dot />
             </div>
           </div>
 
-          <div className="flex flex-col gap-1 mr-8" style={{ transform: 'rotate(90deg)' }}>
+          <div className="flex flex-col mr-8" style={{ transform: 'rotate(90deg)' }}>
             {/* Row 1: 1 dot */}
             <div className="flex items-center gap-0">
               <Dot />
             </div>
             {/* Row 2: 3 dots (2nd is gap) */}
-            <div className="flex items-center gap-0">
+            <div className="flex items-center gap-0 -mt-3">
               <Dot /><div className="w-[22px] h-[37px] invisible" /><Dot /><div className="w-[22px] h-[37px] invisible" /><Dot />
             </div>
             {/* Row 3: 3 dots (2nd is gap) */}
-            <div className="flex items-center gap-0">
+            <div className="flex items-center gap-0 -mt-3">
               <Dot /><div className="w-[22px] h-[37px] invisible" /><Dot /><div className="w-[22px] h-[37px] invisible" /><Dot />
             </div>
             {/* Row 4: 2nd and 4th dot only */}
-            <div className="flex items-center gap-0">
+            <div className="flex items-center gap-0 -mt-3">
               <div className="w-[22px] h-[37px] invisible" /><Dot /><div className="w-[22px] h-[37px] invisible" /><Dot />
             </div>
           </div>

@@ -11,10 +11,10 @@ const specialties = [
   { label: 'Personal Trainer', icon: '/yoga-1-3@2x.png' },
 ];
 
-const DotGrid = ({ cols, count, className }) => (
-  <div className={`grid gap-x-4 gap-y-3 ${cols} ${className}`}>
+const DotGrid = ({ cols, count, className, dotClassName = 'opacity-50', excludeIndex, rowGap = 'gap-y-2', colGap = 'gap-x-3' }) => (
+  <div className={`grid w-fit ${colGap} ${rowGap} ${cols} ${className}`}>
     {Array.from({ length: count }).map((_, i) => (
-      <img key={i} src="/Polygon-132.svg" alt="" className="h-2 w-4 object-contain opacity-50" />
+      <img key={i} src="/Polygon-132.svg" alt="" className={`h-2 w-4 object-contain ${i === excludeIndex ? 'invisible' : dotClassName}`} />
     ))}
   </div>
 );
@@ -38,14 +38,14 @@ function Hero() {
           </div>
 
           {/* Dot Grid */}
-          <DotGrid cols="grid-cols-5" count={20} className="ml-20 mb-6" />
+          <DotGrid cols="grid-cols-5" count={20} className="ml-28 mb-6" dotClassName="opacity-80" excludeIndex={15} />
 
           {/* Specialty Card */}
-          <div className="relative ml-8 translate-y-[40px] ml-20">
+          <div className="relative ml-8 lg:ml-28 translate-y-[40px] lg:translate-y-[60px] lg:translate-x-0">
             <DotGrid cols="grid-cols-5" count={9} className="absolute top-10 left-8 z-10" />
             <img src="/special_offerBG.svg" alt="" className="w-[280px]" />
             <div className="absolute inset-0 flex flex-col justify-center px-6 py-8">
-              <p className="text-white font-bold text-sm tracking-widest uppercase mb-4" style={{ fontFamily: 'Satoshi' }}>Our Specialty</p>
+              <p className="text-white text-sm tracking-widest uppercase mb-4" style={{ fontFamily: 'Tilt Warp', fontWeight: 400 }}>Our Specialty</p>
               {specialties.map((item) => (
                 <div key={item.label} className="flex items-center gap-3 rounded-xl border border-white/30 bg-white/10 px-3 py-2.5 mb-3 max-w-[220px]">
                   <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/20">
@@ -85,7 +85,7 @@ function Hero() {
         {/* Hero image block */}
         <div className="relative w-full overflow-hidden">
           <img src="/power-your-potential.png" alt="Power your potential"
-            className="absolute left-1/2 top-[12%] z-10 w-[80%] max-w-[420px] -translate-x-1/2 object-contain" />
+            className="absolute left-1/2 top-[68%] z-10 w-[80%] max-w-[420px] -translate-x-1/2 object-contain" />
           <img src="/hero_img.png" alt="Hero" className="w-full object-cover" />
           <div className="flex justify-center gap-2 pb-6 pt-2">
             <div className="flex items-center gap-2 rounded-[10px] border border-white px-5 py-2.5 shadow-lg">
@@ -102,7 +102,7 @@ function Hero() {
 
         {/* Specialty card horizontal */}
         <div className="w-full bg-[#7AB641] p-5">
-          <p className="text-white font-bold text-sm tracking-widest uppercase mb-3" style={{ fontFamily: 'Satoshi' }}>Our Specialty</p>
+          <p className="text-white text-sm tracking-widest uppercase mb-3" style={{ fontFamily: 'Tilt Warp', fontWeight: 400 }}>Our Specialty</p>
           <div className="flex gap-3">
             {specialties.map((item) => (
               <div key={item.label} className="flex flex-1 items-center gap-2 rounded-xl border border-white/30 bg-white/10 px-3 py-2.5">
@@ -127,7 +127,7 @@ function Hero() {
         {/* Hero image */}
         <div className="relative w-full overflow-hidden">
           <img src="/power-your-potential.png" alt="Power your potential"
-            className="absolute left-1/2 top-[8%] z-10 w-[90%] max-w-[280px] -translate-x-1/2 object-contain" />
+            className="absolute left-1/2 top-[64%] z-10 w-[90%] max-w-[280px] -translate-x-1/2 object-contain" />
           <img src="/hero_img.png" alt="Hero" className="w-full object-cover" />
           <div className="flex justify-center gap-2 pb-5 pt-1">
             <div className="flex items-center gap-2 rounded-[10px] border border-white px-4 py-2 shadow-lg">
@@ -144,7 +144,7 @@ function Hero() {
 
         {/* Specialty card stacked */}
         <div className="w-full bg-[#7AB641] p-5">
-          <p className="text-white font-bold text-xs tracking-widest uppercase mb-3" style={{ fontFamily: 'Satoshi' }}>Our Specialty</p>
+          <p className="text-white text-xs tracking-widest uppercase mb-3" style={{ fontFamily: 'Tilt Warp', fontWeight: 400 }}>Our Specialty</p>
           <div className="flex flex-col gap-2">
             {specialties.map((item) => (
               <div key={item.label} className="flex items-center gap-3 rounded-xl border border-white/30 bg-white/10 px-3 py-2.5">
