@@ -1,5 +1,6 @@
 .qwen
 node_modules
+dist
 SPEC.md
 UI.png
 QWEN.md
