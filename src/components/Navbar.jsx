@@ -1,14 +1,27 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, Search, X } from "lucide-react";
 import { fadeUp } from "../lib/motion";
+import { useAuth } from "../context/AuthContext";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const { isAuthenticated, logout } = useAuth();
+
+  const handlePrimaryAction = async () => {
+    if (isAuthenticated) {
+      await logout();
+      navigate("/");
+      return;
+    }
+
+    navigate("/register");
+  };
 
   return (
-    <motion.nav {...fadeUp} className="relative mt-4">
+    <motion.nav {...fadeUp} className="relative z-50 mt-4">
       {/* ── DESKTOP (md+) ── */}
       <motion.div
         initial={{ opacity: 0, y: 16 }}
@@ -46,10 +59,14 @@ function Navbar() {
           </div>
         </div>
 
-        {/* Register Button */}
-        <Link to="/register" className="bg-[#7AB641] hover:bg-[#6DA033] text-white font-bold text-base lg:text-lg tracking-wider py-3 lg:py-3.5 px-8 lg:px-16 rounded-full transition-colors uppercase md:mr-8 lg:mr-32 text-center">
-          Register
-        </Link>
+        {/* Primary Button */}
+        <button
+          type="button"
+          onClick={handlePrimaryAction}
+          className="bg-[#7AB641] hover:bg-[#6DA033] text-white font-bold text-base lg:text-lg tracking-wider py-3 lg:py-3.5 px-8 lg:px-16 rounded-full transition-colors uppercase md:mr-8 lg:mr-32 text-center cursor-pointer"
+        >
+          {isAuthenticated ? "Logout" : "Register"}
+        </button>
       </motion.div>
 
       {/* ── MOBILE (< md) ── */}
@@ -94,9 +111,16 @@ function Navbar() {
               <Search size={18} strokeWidth={2.5} className="text-white" />
             </div>
 
-            <Link to="/register" className="bg-[#7AB641] hover:bg-[#6DA033] text-white font-bold text-sm tracking-wider py-3 px-8 rounded-full transition-colors uppercase w-full mt-1 text-center">
-              Register
-            </Link>
+            <button
+              type="button"
+              onClick={async () => {
+                setMenuOpen(false);
+                await handlePrimaryAction();
+              }}
+              className="bg-[#7AB641] hover:bg-[#6DA033] text-white font-bold text-sm tracking-wider py-3 px-8 rounded-full transition-colors uppercase w-full mt-1 text-center cursor-pointer"
+            >
+              {isAuthenticated ? "Logout" : "Register"}
+            </button>
           </motion.div>
         )}
       </AnimatePresence>

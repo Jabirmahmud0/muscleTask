@@ -17,11 +17,7 @@ function App() {
       />
       <Route
         path="/register"
-        element={
-          <AuthRoute>
-            <AuthPage variant="register" />
-          </AuthRoute>
-        }
+        element={<AuthPage variant="register" />}
       />
       <Route
         path="/verify-otp"

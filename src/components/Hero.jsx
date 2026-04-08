@@ -141,11 +141,7 @@ function Hero() {
       </motion.div>
 
       {/* ── MOBILE sm ── */}
-      <motion.div
-        {...fadeUp}
-        transition={{ ...fadeUp.transition, delay: 0.05 }}
-        className="flex md:hidden flex-col items-center px-0 gap-0 w-full"
-      >
+      <div className="flex md:hidden flex-col items-center px-0 gap-0 w-full">
         {/* Hero image */}
         <div className="relative w-full overflow-hidden">
           <img src="/power-your-potential.png" alt="Power your potential"
@@ -182,7 +178,7 @@ function Hero() {
             {socials.map((s) => <img key={s.name} src={s.icon} alt={s.name} className="h-4 w-5 object-contain" />)}
           </div>
         </div>
-      </motion.div>
+      </div>
 
     </motion.section>
   );
