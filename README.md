@@ -4,8 +4,8 @@ Frontend implementation of the landing page and authentication experience for th
 
 ## Live Links
 
-- GitHub repository: add your public repo URL here
-- Live deployment: add your Vercel or Netlify URL here
+- GitHub repository: https://github.com/Jabirmahmud0/muscleTask
+- Live deployment: https://muscle-task.vercel.app
 
 ## Project Setup
 
