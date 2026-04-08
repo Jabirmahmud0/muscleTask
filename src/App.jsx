@@ -1,5 +1,6 @@
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import Products from './components/Products';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <div className="hidden lg:block">
         <Hero />
       </div>
+      <Products />
     </div>
   );
 }
