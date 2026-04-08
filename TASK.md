@@ -25,14 +25,14 @@
 
 ## Phase 2: State And API Foundation
 
-- [ ] Add a global auth/session state using React Context plus `useReducer`.
-- [ ] Create a centralized API layer for the provided authentication endpoints.
-- [ ] Send requests as `multipart/form-data` using `FormData`.
-- [ ] Store the login token after successful authentication.
-- [ ] Send `Authorization: Bearer {{token}}` on authenticated requests.
-- [ ] Integrate the alternate base URL for the forgot verify OTP endpoint.
-- [ ] Persist auth state/token safely across refreshes.
-- [ ] Handle authenticated and unauthenticated app states consistently.
+- [x] Add a global auth/session state using React Context plus `useReducer`.
+- [x] Create a centralized API layer for the provided authentication endpoints.
+- [x] Send requests as `multipart/form-data` using `FormData`.
+- [x] Store the login token after successful authentication.
+- [x] Send `Authorization: Bearer {{token}}` on authenticated requests.
+- [x] Integrate the alternate base URL for the forgot verify OTP endpoint.
+- [x] Persist auth state/token safely across refreshes.
+- [x] Handle authenticated and unauthenticated app states consistently.
 
 ## Phase 3: Auth Flows
 
