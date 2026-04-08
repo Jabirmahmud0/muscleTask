@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App.jsx'
 import { AuthProvider } from './context/AuthContext.jsx'
+import SmoothScroll from './components/SmoothScroll.jsx'
 import './index.css'
 
 document.body.style.margin = '0'
@@ -29,6 +30,7 @@ document.head.appendChild(style)
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthProvider>
+      <SmoothScroll />
       <BrowserRouter>
         <App />
       </BrowserRouter>
