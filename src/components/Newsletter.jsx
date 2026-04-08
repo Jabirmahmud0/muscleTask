@@ -1,4 +1,7 @@
 /* ─── Dot helper ─── */
+import { motion } from 'framer-motion';
+import { fadeUp, softReveal } from '../lib/motion';
+
 const Dot = ({ className = '' }) => (
   <img
     className={`h-[37px] w-[22px] relative object-contain ${className}`}
@@ -11,7 +14,7 @@ const Dot = ({ className = '' }) => (
 /* ─── Main Newsletter Section ─── */
 function Newsletter({ className = '' }) {
   return (
-    <section className={`w-full px-5 md:px-10 lg:px-24 pt-0 pb-0 font-[Satoshi] relative ${className}`}>
+    <motion.section {...fadeUp} className={`w-full px-5 md:px-10 lg:px-24 pt-0 pb-0 font-[Satoshi] relative ${className}`}>
       {/* Decorative dots — top right */}
       <div className="hidden lg:flex w-full justify-end mb-0">
         {/* Right: same pattern, rotated 90° */}
@@ -32,7 +35,7 @@ function Newsletter({ className = '' }) {
       </div>
 
       {/* Main Card */}
-      <div className="relative rounded-[30px] md:rounded-[45px] bg-black overflow-hidden px-6 md:px-12 lg:px-20 py-10 md:py-12">
+      <motion.div {...softReveal} className="relative rounded-[30px] md:rounded-[45px] bg-black overflow-hidden px-6 md:px-12 lg:px-20 py-10 md:py-12">
         <div className="flex flex-col items-center text-center gap-6">
           {/* "Join our community" */}
           <p
@@ -88,8 +91,8 @@ function Newsletter({ className = '' }) {
             </button>
           </div>
         </div>
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 }
 

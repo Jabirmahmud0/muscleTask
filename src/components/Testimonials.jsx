@@ -1,9 +1,13 @@
 /* ─── Testimonial Card ─── */
+import { motion } from 'framer-motion';
+import { fadeUp, staggerGroup, staggerItem } from '../lib/motion';
+
 const TestimonialCard = ({ avatar, shadow, className = '' }) => {
   const stars = [1, 2, 3, 4].fill('filled').concat(['half']);
 
   return (
-    <div
+    <motion.div
+      variants={staggerItem}
       className={`relative rounded-[25px] bg-black text-white overflow-hidden
         w-full max-w-[450px] min-h-[320px] p-8 flex flex-col justify-between
         ${shadow ? 'shadow-[0px_20px_40px_rgba(0,0,0,0.3)]' : ''} ${className}`}
@@ -60,7 +64,7 @@ const TestimonialCard = ({ avatar, shadow, className = '' }) => {
           <span className="text-white text-xs font-medium" style={{ fontFamily: 'Satoshi, sans-serif' }}>(4.5)</span>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
@@ -86,7 +90,7 @@ function Testimonials({ className = '' }) {
   ];
 
   return (
-    <section className={`w-full px-5 md:px-10 lg:px-24 pt-0 pb-0 font-[Satoshi] relative ${className}`}>
+    <motion.section {...fadeUp} className={`w-full px-5 md:px-10 lg:px-24 pt-0 pb-0 font-[Satoshi] relative ${className}`}>
       {/* Decorative dots — top left + top right */}
       <div className="hidden lg:flex w-full justify-between items-start mb-0">
         {/* Left: rotated 165° */}
@@ -150,7 +154,13 @@ function Testimonials({ className = '' }) {
 
       {/* Cards Grid */}
       <div className="bg-[rgba(0,0,0,0.05)] rounded-[30px] md:rounded-[40px] p-6 md:p-8 lg:p-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.div
+          variants={staggerGroup}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.15 }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
           {cards.map((card, i) => (
             <TestimonialCard
               key={i}
@@ -158,9 +168,9 @@ function Testimonials({ className = '' }) {
               shadow={card.shadow}
             />
           ))}
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }
 

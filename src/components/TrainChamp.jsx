@@ -1,4 +1,7 @@
 /* ─── Decorative Polygon Dot ─── */
+import { motion } from 'framer-motion';
+import { fadeUp, softReveal } from '../lib/motion';
+
 const Dot = ({ className = '' }) => (
   <img
     className={`h-[37px] w-[22px] relative object-contain ${className}`}
@@ -23,7 +26,7 @@ const FocusCard = ({ title, description }) => (
 /* ─── Main TrainChamp Section ─── */
 function TrainChamp({ className = '' }) {
   return (
-    <section className={`w-full px-5 md:px-10 lg:px-24 pt-0 pb-0 font-[Satoshi] relative ${className}`}>
+    <motion.section {...fadeUp} className={`w-full px-5 md:px-10 lg:px-24 pt-0 pb-0 font-[Satoshi] relative ${className}`}>
 
       {/* Header Row */}
       <div className="flex flex-col items-start gap-2 max-w-full text-black/75">
@@ -87,7 +90,7 @@ function TrainChamp({ className = '' }) {
       </div>
 
       {/* Main Content Card */}
-      <div className="relative rounded-[30px] md:rounded-[40px] bg-black overflow-hidden p-6 md:p-10 lg:p-12 mt-6">
+      <motion.div {...softReveal} className="relative rounded-[30px] md:rounded-[40px] bg-black overflow-hidden p-6 md:p-10 lg:p-12 mt-6">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
 
           {/* Left: Image */}
@@ -169,8 +172,8 @@ function TrainChamp({ className = '' }) {
           </div>
 
         </div>
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 }
 

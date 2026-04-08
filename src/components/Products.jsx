@@ -1,3 +1,6 @@
+import { motion } from 'framer-motion';
+import { fadeUp, staggerGroup, staggerItem } from '../lib/motion';
+
 const products = [
   {
     id: 1,
@@ -69,7 +72,8 @@ const Dot = ({ className = '' }) => (
 
 /* ─── Product Card Component ─── */
 const ProductCard = ({ name, price, rating, image, className = '' }) => (
-  <section
+  <motion.section
+    variants={staggerItem}
     className={`h-[420px] w-full max-w-[545px] relative text-left text-2xl text-[#fff] font-[Satoshi] rounded-[25px] bg-[#000] overflow-hidden mq900:min-w-full ${className}`}
   >
     {/* Product Image + Cart Button */}
@@ -113,7 +117,7 @@ const ProductCard = ({ name, price, rating, image, className = '' }) => (
         </div>
       </div>
     </div>
-  </section>
+  </motion.section>
 );
 
 /* ─── Products Header Component ─── */
@@ -193,13 +197,20 @@ const ProductsHeader = ({ className = '' }) => (
 /* ─── Main Products Section ─── */
 function Products({ className = '' }) {
   return (
-    <section
+    <motion.section
+      {...fadeUp}
       className={`w-full px-5 md:px-10 lg:px-24 pt-12 pb-2 font-[Satoshi] ${className}`}
     >
       <ProductsHeader />
 
       {/* Product Grid */}
-      <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-[6px] gap-y-[6px] justify-items-center">
+      <motion.div
+        variants={staggerGroup}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.15 }}
+        className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-[6px] gap-y-[6px] justify-items-center"
+      >
         {products.map((product) => (
           <ProductCard
             key={product.id}
@@ -209,8 +220,8 @@ function Products({ className = '' }) {
             image={product.image}
           />
         ))}
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 }
 

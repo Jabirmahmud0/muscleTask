@@ -1,4 +1,6 @@
+import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { fadeUp, softReveal, staggerGroup, staggerItem } from '../lib/motion';
 
 const socials = [
   { name: 'Facebook', icon: '/facebook-app-symbol-1@2x.png' },
@@ -23,14 +25,14 @@ const DotGrid = ({ cols, count, className, dotClassName = 'opacity-50', excludeI
 
 function Hero() {
   return (
-    <section className="w-full">
+    <motion.section {...fadeUp} className="w-full">
 
       {/* ── DESKTOP lg+ ── */}
       <div className="hidden lg:grid items-end gap-4 px-10 py-10
         lg:min-h-[620px] lg:grid-cols-[400px_minmax(0,1fr)]">
 
         {/* Left Column: Follow On + Dot Grid + Specialty Card */}
-        <div className="flex flex-col">
+        <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.06 }} className="flex flex-col">
           {/* Follow On */}
           <div className="flex items-center gap-5 text-white ml-28 mb-2">
             <span className="text-[16px] font-semibold whitespace-nowrap">Follow On:</span>
@@ -43,25 +45,39 @@ function Hero() {
           <DotGrid cols="grid-cols-5" count={20} className="ml-28 mb-6" dotClassName="opacity-80" excludeIndex={15} />
 
           {/* Specialty Card */}
-          <div className="relative ml-8 lg:ml-28 translate-y-[40px] lg:translate-y-[60px] lg:translate-x-0">
+          <motion.div
+            {...softReveal}
+            transition={{ ...softReveal.transition, delay: 0.1 }}
+            className="relative ml-8 lg:ml-28 translate-y-[40px] lg:translate-y-[60px] lg:translate-x-0"
+          >
             <DotGrid cols="grid-cols-5" count={9} className="absolute top-10 left-8 z-10" />
             <img src="/special_offerBG.svg" alt="" className="w-[280px]" />
-            <div className="absolute inset-0 flex flex-col justify-center px-6 py-8">
+            <motion.div
+              variants={staggerGroup}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.4 }}
+              className="absolute inset-0 flex flex-col justify-center px-6 py-8"
+            >
               <p className="text-white text-sm tracking-widest uppercase mb-4" style={{ fontFamily: 'Tilt Warp', fontWeight: 400 }}>Our Specialty</p>
               {specialties.map((item) => (
-                <div key={item.label} className="flex items-center gap-3 rounded-xl border border-white/30 bg-white/10 px-3 py-2.5 mb-3 max-w-[220px]">
+                <motion.div key={item.label} variants={staggerItem} className="flex items-center gap-3 rounded-xl border border-white/30 bg-white/10 px-3 py-2.5 mb-3 max-w-[220px]">
                   <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/20">
                     <img src={item.icon} alt={item.label} className="h-5 w-5 object-contain" />
                   </div>
                   <span className="text-white text-sm font-medium" style={{ fontFamily: 'Satoshi' }}>{item.label}</span>
-                </div>
+                </motion.div>
               ))}
-            </div>
-          </div>
-        </div>
+            </motion.div>
+          </motion.div>
+        </motion.div>
 
         {/* Right Hero */}
-        <div className="relative ml-auto mr-auto w-fit">
+        <motion.div
+          {...softReveal}
+          transition={{ ...softReveal.transition, delay: 0.12 }}
+          className="relative ml-auto mr-auto w-fit"
+        >
           <DotGrid cols="grid-cols-3" count={12} className="absolute right-[4%] top-[12%] z-10" />
           <DotGrid cols="grid-cols-4" count={11} className="absolute left-[84%] top-[-8%] z-10" />
           <img src="/power-your-potential.png" alt="Power your potential"
@@ -77,11 +93,15 @@ function Hero() {
               <img src="/maps-and-flags-1.png" alt="Location" className="h-5 w-5 object-contain" />
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* ── TABLET md ── */}
-      <div className="hidden md:flex lg:hidden flex-col items-center px-0 gap-0 w-full">
+      <motion.div
+        {...fadeUp}
+        transition={{ ...fadeUp.transition, delay: 0.05 }}
+        className="hidden md:flex lg:hidden flex-col items-center px-0 gap-0 w-full"
+      >
         {/* Hero image block */}
         <div className="relative w-full overflow-hidden">
           <img src="/power-your-potential.png" alt="Power your potential"
@@ -118,10 +138,14 @@ function Hero() {
             {socials.map((s) => <img key={s.name} src={s.icon} alt={s.name} className="h-4 w-5 object-contain" />)}
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* ── MOBILE sm ── */}
-      <div className="flex md:hidden flex-col items-center px-0 gap-0 w-full">
+      <motion.div
+        {...fadeUp}
+        transition={{ ...fadeUp.transition, delay: 0.05 }}
+        className="flex md:hidden flex-col items-center px-0 gap-0 w-full"
+      >
         {/* Hero image */}
         <div className="relative w-full overflow-hidden">
           <img src="/power-your-potential.png" alt="Power your potential"
@@ -158,9 +182,9 @@ function Hero() {
             {socials.map((s) => <img key={s.name} src={s.icon} alt={s.name} className="h-4 w-5 object-contain" />)}
           </div>
         </div>
-      </div>
+      </motion.div>
 
-    </section>
+    </motion.section>
   );
 }
 

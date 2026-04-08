@@ -1,4 +1,7 @@
 /* ─── Dot helper ─── */
+import { motion } from 'framer-motion';
+import { fadeUp } from '../lib/motion';
+
 const Dot = ({ className = '' }) => (
   <img
     className={`h-[37px] w-[22px] relative object-contain ${className}`}
@@ -62,7 +65,11 @@ const FooterLinks = () => {
 /* ─── Main Footer Section ─── */
 function Footer({ className = '' }) {
   return (
-    <section id="gym-location" className={`w-full px-5 md:px-10 lg:px-24 pt-0 pb-12 font-[Satoshi] relative ${className}`}>
+    <motion.section
+      {...fadeUp}
+      id="gym-location"
+      className={`w-full px-5 md:px-10 lg:px-24 pt-0 pb-12 font-[Satoshi] relative ${className}`}
+    >
       {/* Decorative dots — above left */}
       <div className="hidden lg:flex w-full justify-start mb-4">
         <div className="flex flex-col gap-0">
@@ -100,7 +107,7 @@ function Footer({ className = '' }) {
       >
         websitename.com©2024 all right reserve
       </p>
-    </section>
+    </motion.section>
   );
 }
 

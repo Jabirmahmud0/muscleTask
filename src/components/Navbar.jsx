@@ -2,14 +2,21 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, Search, X } from "lucide-react";
+import { fadeUp } from "../lib/motion";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="relative mt-4">
+    <motion.nav {...fadeUp} className="relative mt-4">
       {/* ── DESKTOP (md+) ── */}
-      <div className="hidden md:flex items-center justify-between px-6 py-4">
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ duration: 0.35, ease: "easeOut" }}
+        className="hidden md:flex items-center justify-between px-6 py-4"
+      >
         {/* Left: Logo + Pill Nav */}
         <div className="flex items-center flex-1">
           {/* Green Logo Circle */}
@@ -43,10 +50,16 @@ function Navbar() {
         <Link to="/register" className="bg-[#7AB641] hover:bg-[#6DA033] text-white font-bold text-base lg:text-lg tracking-wider py-3 lg:py-3.5 px-8 lg:px-16 rounded-full transition-colors uppercase md:mr-8 lg:mr-32 text-center">
           Register
         </Link>
-      </div>
+      </motion.div>
 
       {/* ── MOBILE (< md) ── */}
-      <div className="md:hidden flex items-center justify-between px-4 py-4">
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ duration: 0.35, ease: "easeOut" }}
+        className="md:hidden flex items-center justify-between px-4 py-4"
+      >
         {/* Logo */}
         <div className="w-[52px] h-[52px] rounded-full bg-[#7AB641] flex items-center justify-center shrink-0">
           <img src="/navLEFTLogo.png" alt="Logo" className="w-[34px] h-[34px] object-contain" />
@@ -60,7 +73,7 @@ function Navbar() {
         >
           {menuOpen ? <X size={24} strokeWidth={2.2} /> : <Menu size={24} strokeWidth={2.2} />}
         </button>
-      </div>
+      </motion.div>
 
       {/* Mobile Dropdown Menu */}
       <AnimatePresence>
@@ -87,7 +100,7 @@ function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </motion.nav>
   );
 }
 
