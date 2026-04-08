@@ -102,7 +102,6 @@ Because of that, the frontend includes a mock auth mode so the full user flow ca
 
 ### App Screenshots
 
-![Screenshot 0](./public/1.png)
 ![Screenshot 1](./public/Screenshots/1.png)
 ![Screenshot 2](./public/Screenshots/2.png)
 ![Screenshot 3](./public/Screenshots/3.png)
