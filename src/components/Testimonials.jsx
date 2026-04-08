@@ -86,7 +86,7 @@ function Testimonials({ className = '' }) {
   ];
 
   return (
-    <section className={`w-full px-5 md:px-10 lg:px-24 pt-0 pb-12 font-[Satoshi] relative ${className}`}>
+    <section className={`w-full px-5 md:px-10 lg:px-24 pt-0 pb-0 font-[Satoshi] relative ${className}`}>
       {/* Decorative dots — top left + top right */}
       <div className="hidden lg:flex w-full justify-between items-start mb-0">
         {/* Left: rotated 165° */}

@@ -3,6 +3,8 @@ import Hero from './components/Hero';
 import Products from './components/Products';
 import TrainChamp from './components/TrainChamp';
 import Testimonials from './components/Testimonials';
+import Newsletter from './components/Newsletter';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
       <Products />
       <TrainChamp />
       <Testimonials />
+      <Newsletter />
+      <Footer />
     </div>
   );
 }
