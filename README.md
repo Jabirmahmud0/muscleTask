@@ -38,6 +38,31 @@ npm run build
 npm run preview
 ```
 
+## Vercel Deployment
+
+This project is ready for Vercel deployment.
+
+### Vercel Build Settings
+
+- Framework Preset: `Vite`
+- Build Command: `npm run build`
+- Output Directory: `dist`
+- Install Command: `npm install`
+
+### Route Handling
+
+`vercel.json` is included so React Router routes like `/login`, `/register`, and `/forgot-password` correctly rewrite to `index.html` on refresh and direct visits.
+
+### Optional Environment Variables
+
+Add these in Vercel Project Settings if you want to override the defaults:
+
+```env
+VITE_AUTH_MODE=mock
+VITE_AUTH_API_BASE_URL=https://frontend_api_test.test
+VITE_AUTH_ALT_BASE_URL=https://apitest.softvencefsd.xyz
+```
+
 ## Environment Notes
 
 The auth layer supports both real API mode and mock mode.
@@ -134,6 +159,7 @@ package.json
 package-lock.json
 README.md
 vite.config.js
+vercel.json
 ```
 
 ## Submission Notes
