@@ -55,8 +55,8 @@
 
 ## Phase 5: Required Libraries
 
-- [ ] Install and use `lucide-react` where the spec requires icons.
-- [ ] Install and use `framer-motion` where the spec requires animations.
+- [x] Install and use `lucide-react` where the spec requires icons.
+- [x] Install and use `framer-motion` where the spec requires animations.
 
 ## Phase 6: UI Fidelity
 

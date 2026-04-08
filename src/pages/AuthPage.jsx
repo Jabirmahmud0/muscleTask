@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useState } from 'react';
+import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate, useSearchParams } from 'react-router-dom';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { AUTH_MODE } from '../lib/authConfig';
 
@@ -307,7 +309,12 @@ function AuthPage({ variant }) {
 
   return (
     <div className="min-h-screen bg-black px-4 py-6 md:px-10 lg:px-24 lg:py-10">
-      <div className="mx-auto flex min-h-[calc(100vh-3rem)] max-w-[1440px] flex-col rounded-[28px] border border-white/15 bg-[url('/hero_bg.svg')] bg-top bg-no-repeat lg:min-h-[880px]">
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.28, ease: 'easeOut' }}
+        className="mx-auto flex min-h-[calc(100vh-3rem)] max-w-[1440px] flex-col rounded-[28px] border border-white/15 bg-[url('/hero_bg.svg')] bg-top bg-no-repeat lg:min-h-[880px]"
+      >
         <header className="flex items-center justify-between px-6 py-6 md:px-8 lg:px-12">
           <Link
             to="/"
@@ -321,9 +328,10 @@ function AuthPage({ variant }) {
           </Link>
           <Link
             to="/"
-            className="rounded-full border border-white px-5 py-2 text-sm font-medium tracking-[0.18em] text-white uppercase"
+            className="inline-flex items-center gap-2 rounded-full border border-white px-5 py-2 text-sm font-medium tracking-[0.18em] text-white uppercase"
             style={{ fontFamily: 'Satoshi, sans-serif' }}
           >
+            <ArrowLeft size={16} strokeWidth={2.2} />
             Back To Home
           </Link>
         </header>
@@ -429,10 +437,11 @@ function AuthPage({ variant }) {
               <button
                 type="submit"
                 disabled={isSubmitting || auth.status === 'loading'}
-                className="w-full rounded-full bg-[#7AB641] px-6 py-4 text-base font-bold uppercase tracking-[0.2em] text-white disabled:opacity-70"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#7AB641] px-6 py-4 text-base font-bold uppercase tracking-[0.2em] text-white disabled:opacity-70"
                 style={{ fontFamily: 'Satoshi, sans-serif' }}
               >
                 {isSubmitting || auth.status === 'loading' ? 'Please Wait' : page.primaryLabel}
+                {isSubmitting || auth.status === 'loading' ? null : <ArrowRight size={18} strokeWidth={2.2} />}
               </button>
 
               <p
@@ -447,7 +456,7 @@ function AuthPage({ variant }) {
             </form>
           </section>
         </main>
-      </div>
+      </motion.div>
     </div>
   );
 }

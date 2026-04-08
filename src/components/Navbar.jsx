@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
+import { Menu, Search, X } from "lucide-react";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -32,10 +34,7 @@ function Navbar() {
             {/* Search */}
             <div className="flex items-center bg-[#FFFFFF40] border border-white/20 rounded-full px-8 py-1.5 gap-6">
               <span className="text-white text-sm font-medium" style={{ fontFamily: "Satoshi" }}>Search</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="11" cy="11" r="8" />
-                <path d="m21 21-4.35-4.35" />
-              </svg>
+              <Search size={14} strokeWidth={2.5} className="text-white" />
             </div>
           </div>
         </div>
@@ -56,35 +55,38 @@ function Navbar() {
         {/* Hamburger */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="flex flex-col justify-center items-center gap-[5px] w-10 h-10"
+          className="flex items-center justify-center w-10 h-10 text-white"
           aria-label="Toggle menu"
         >
-          <span className={`block h-[2px] w-6 bg-white transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[7px]" : ""}`} />
-          <span className={`block h-[2px] w-6 bg-white transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
-          <span className={`block h-[2px] w-6 bg-white transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-[7px]" : ""}`} />
+          {menuOpen ? <X size={24} strokeWidth={2.2} /> : <Menu size={24} strokeWidth={2.2} />}
         </button>
       </div>
 
       {/* Mobile Dropdown Menu */}
-      {menuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-black border border-white/20 rounded-2xl mx-4 px-6 py-5 flex flex-col gap-4 z-50">
-          <Link to="/" className="text-white text-sm font-medium tracking-wide" style={{ fontFamily: "Satoshi" }}>Home</Link>
-          <a href="#gym-location" className="text-white text-sm font-medium tracking-wide" style={{ fontFamily: "Satoshi" }}>Our gym location</a>
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            className="md:hidden absolute top-full left-0 right-0 bg-black border border-white/20 rounded-2xl mx-4 px-6 py-5 flex flex-col gap-4 z-50"
+          >
+            <Link to="/" className="text-white text-sm font-medium tracking-wide" style={{ fontFamily: "Satoshi" }}>Home</Link>
+            <a href="#gym-location" className="text-white text-sm font-medium tracking-wide" style={{ fontFamily: "Satoshi" }}>Our gym location</a>
 
-          {/* Search */}
-          <div className="flex items-center bg-[#FFFFFF40] border border-white/20 rounded-full px-4 py-2 gap-2 w-fit">
-            <span className="text-white text-sm font-medium" style={{ fontFamily: "Satoshi" }}>Search</span>
-            <svg width="24" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="11" cy="11" r="8" />
-              <path d="m21 21-4.35-4.35" />
-            </svg>
-          </div>
+            {/* Search */}
+            <div className="flex items-center bg-[#FFFFFF40] border border-white/20 rounded-full px-4 py-2 gap-2 w-fit">
+              <span className="text-white text-sm font-medium" style={{ fontFamily: "Satoshi" }}>Search</span>
+              <Search size={18} strokeWidth={2.5} className="text-white" />
+            </div>
 
-          <Link to="/register" className="bg-[#7AB641] hover:bg-[#6DA033] text-white font-bold text-sm tracking-wider py-3 px-8 rounded-full transition-colors uppercase w-full mt-1 text-center">
-            Register
-          </Link>
-        </div>
-      )}
+            <Link to="/register" className="bg-[#7AB641] hover:bg-[#6DA033] text-white font-bold text-sm tracking-wider py-3 px-8 rounded-full transition-colors uppercase w-full mt-1 text-center">
+              Register
+            </Link>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }

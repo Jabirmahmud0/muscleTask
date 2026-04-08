@@ -1,3 +1,5 @@
+import { ArrowRight } from 'lucide-react';
+
 const socials = [
   { name: 'Facebook', icon: '/facebook-app-symbol-1@2x.png' },
   { name: 'Instagram', icon: '/instagram-4-1@2x.png' },
@@ -69,9 +71,7 @@ function Hero() {
           <div className="absolute bottom-[8%] left-[10%] z-20 flex items-stretch gap-3">
             <div className="flex items-center gap-2 rounded-[10px] border border-white px-6 py-3 shadow-lg">
               <span className="text-white text-[20px] font-medium" style={{ fontFamily: 'Satoshi' }}>SHOP NOW</span>
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
-              </svg>
+              <ArrowRight className="h-5 w-5 text-white" strokeWidth={2} />
             </div>
             <div className="flex items-center rounded-[10px] border border-white px-3 shadow-lg">
               <img src="/maps-and-flags-1.png" alt="Location" className="h-5 w-5 object-contain" />
@@ -90,9 +90,7 @@ function Hero() {
           <div className="flex justify-center gap-2 pb-6 pt-2">
             <div className="flex items-center gap-2 rounded-[10px] border border-white px-5 py-2.5 shadow-lg">
               <span className="text-white text-base font-medium" style={{ fontFamily: 'Satoshi' }}>SHOP NOW</span>
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
-              </svg>
+              <ArrowRight className="h-4 w-4 text-white" strokeWidth={2} />
             </div>
             <div className="flex items-center rounded-[10px] border border-white px-2.5 py-2.5 shadow-lg">
               <img src="/maps-and-flags-1.png" alt="Location" className="h-4 w-4 object-contain" />
@@ -132,9 +130,7 @@ function Hero() {
           <div className="flex justify-center gap-2 pb-5 pt-1">
             <div className="flex items-center gap-2 rounded-[10px] border border-white px-4 py-2 shadow-lg">
               <span className="text-white text-sm font-medium" style={{ fontFamily: 'Satoshi' }}>SHOP NOW</span>
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
-              </svg>
+              <ArrowRight className="h-4 w-4 text-white" strokeWidth={2} />
             </div>
             <div className="flex items-center rounded-[10px] border border-white px-2.5 py-2 shadow-lg">
               <img src="/maps-and-flags-1.png" alt="Location" className="h-4 w-4 object-contain" />
