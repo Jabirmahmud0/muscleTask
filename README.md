@@ -1,6 +1,6 @@
 # Muscle Task Frontend
 
-Frontend implementation for the landing page and authentication flow described in [SPEC.md](./SPEC.md).
+Frontend implementation of the landing page and authentication experience for the Muscle Task submission.
 
 ## Live Links
 
@@ -100,12 +100,9 @@ Because of that, the frontend includes a mock auth mode so the full user flow ca
 
 ## Screenshots
 
-### Design Reference
-
-![Design Reference](./UI.png)
-
 ### App Screenshots
 
+![Screenshot 0](./public/1.png)
 ![Screenshot 1](./public/Screenshots/1.png)
 ![Screenshot 2](./public/Screenshots/2.png)
 ![Screenshot 3](./public/Screenshots/3.png)
@@ -117,16 +114,27 @@ Because of that, the frontend includes a mock auth mode so the full user flow ca
 ## Project Structure
 
 ```text
+public/
+  fonts/
+  Screenshots/
+  favicon.svg
+  navLEFTLogo.png
 src/
+  assets/
   components/
   context/
   lib/
   pages/
   routes/
-public/
-SPEC.md
-TASK.md
-Frontend API Test.postman_collection.json
+  App.css
+  App.jsx
+  index.css
+  main.jsx
+index.html
+package.json
+package-lock.json
+README.md
+vite.config.js
 ```
 
 ## Submission Notes
