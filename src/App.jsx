@@ -1,37 +1,18 @@
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Products from './components/Products';
-import TrainChamp from './components/TrainChamp';
-import Testimonials from './components/Testimonials';
-import Newsletter from './components/Newsletter';
-import Footer from './components/Footer';
+import { Navigate, Route, Routes } from 'react-router-dom';
+import LandingPage from './pages/LandingPage';
+import AuthPage from './pages/AuthPage';
 
 function App() {
   return (
-    <div className="w-full min-h-screen
-        lg:bg-[url('/hero_bg.svg')] lg:bg-top lg:bg-no-repeat lg:bg-[length:85%]">
-
-      {/* lg: Navbar sits outside (handled by SVG bg) */}
-      <div className="hidden lg:block">
-        <Navbar />
-      </div>
-
-      {/* sm/md: Navbar is INSIDE the dark hero container */}
-      <div className="lg:hidden bg-black rounded-t-[20px]">
-        <Navbar />
-        <Hero />
-      </div>
-
-      {/* lg: Hero is outside the dark wrapper */}
-      <div className="hidden lg:block">
-        <Hero />
-      </div>
-      <Products />
-      <TrainChamp />
-      <Testimonials />
-      <Newsletter />
-      <Footer />
-    </div>
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/login" element={<AuthPage variant="login" />} />
+      <Route path="/register" element={<AuthPage variant="register" />} />
+      <Route path="/verify-otp" element={<AuthPage variant="verifyOtp" />} />
+      <Route path="/forgot-password" element={<AuthPage variant="forgotPassword" />} />
+      <Route path="/reset-password" element={<AuthPage variant="resetPassword" />} />
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
   );
 }
 

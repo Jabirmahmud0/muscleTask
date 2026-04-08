@@ -62,7 +62,7 @@ const FooterLinks = () => {
 /* ─── Main Footer Section ─── */
 function Footer({ className = '' }) {
   return (
-    <section className={`w-full px-5 md:px-10 lg:px-24 pt-0 pb-12 font-[Satoshi] relative ${className}`}>
+    <section id="gym-location" className={`w-full px-5 md:px-10 lg:px-24 pt-0 pb-12 font-[Satoshi] relative ${className}`}>
       {/* Decorative dots — above left */}
       <div className="hidden lg:flex w-full justify-start mb-4">
         <div className="flex flex-col gap-0">

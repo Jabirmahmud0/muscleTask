@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -20,10 +21,10 @@ function Navbar() {
 
           {/* Black Pill Nav */}
           <div className="flex items-center bg-black rounded-full border border-white px-5 lg:px-8 py-3 gap-4 lg:gap-8 ml-6 lg:ml-16">
-            <a href="#" className="text-white text-sm font-medium tracking-wide whitespace-nowrap" style={{ fontFamily: "Satoshi" }}>
+            <Link to="/" className="text-white text-sm font-medium tracking-wide whitespace-nowrap" style={{ fontFamily: "Satoshi" }}>
               Home
-            </a>
-            <a href="#" className="text-white text-sm font-medium tracking-wide whitespace-nowrap" style={{ fontFamily: "Satoshi" }}>
+            </Link>
+            <a href="#gym-location" className="text-white text-sm font-medium tracking-wide whitespace-nowrap" style={{ fontFamily: "Satoshi" }}>
               Our gym location
             </a>
             <span className="text-white/30 text-lg">|</span>
@@ -40,9 +41,9 @@ function Navbar() {
         </div>
 
         {/* Register Button */}
-        <button className="bg-[#7AB641] hover:bg-[#6DA033] text-white font-bold text-base lg:text-lg tracking-wider py-3 lg:py-3.5 px-8 lg:px-16 rounded-full transition-colors uppercase md:mr-8 lg:mr-32">
+        <Link to="/register" className="bg-[#7AB641] hover:bg-[#6DA033] text-white font-bold text-base lg:text-lg tracking-wider py-3 lg:py-3.5 px-8 lg:px-16 rounded-full transition-colors uppercase md:mr-8 lg:mr-32 text-center">
           Register
-        </button>
+        </Link>
       </div>
 
       {/* ── MOBILE (< md) ── */}
@@ -67,8 +68,8 @@ function Navbar() {
       {/* Mobile Dropdown Menu */}
       {menuOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-black border border-white/20 rounded-2xl mx-4 px-6 py-5 flex flex-col gap-4 z-50">
-          <a href="#" className="text-white text-sm font-medium tracking-wide" style={{ fontFamily: "Satoshi" }}>Home</a>
-          <a href="#" className="text-white text-sm font-medium tracking-wide" style={{ fontFamily: "Satoshi" }}>Our gym location</a>
+          <Link to="/" className="text-white text-sm font-medium tracking-wide" style={{ fontFamily: "Satoshi" }}>Home</Link>
+          <a href="#gym-location" className="text-white text-sm font-medium tracking-wide" style={{ fontFamily: "Satoshi" }}>Our gym location</a>
 
           {/* Search */}
           <div className="flex items-center bg-[#FFFFFF40] border border-white/20 rounded-full px-4 py-2 gap-2 w-fit">
@@ -79,9 +80,9 @@ function Navbar() {
             </svg>
           </div>
 
-          <button className="bg-[#7AB641] hover:bg-[#6DA033] text-white font-bold text-sm tracking-wider py-3 px-8 rounded-full transition-colors uppercase w-full mt-1">
+          <Link to="/register" className="bg-[#7AB641] hover:bg-[#6DA033] text-white font-bold text-sm tracking-wider py-3 px-8 rounded-full transition-colors uppercase w-full mt-1 text-center">
             Register
-          </button>
+          </Link>
         </div>
       )}
     </nav>
